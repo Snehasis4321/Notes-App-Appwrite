@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <section class="header">
+        <div class="empty"></div>
+        <h1><%=email.split("@")[0].charAt(0).toUpperCase()+email.split("@")[0].slice(1)%>'s Notes</h1>
+        <div class="logout"><span class="material-symbols-outlined">
+            logout
+            </span></div>
+    </section>
+    <!-- SEARCH BOX AREA -->
+    <section class="search">
+        <div class="search-box">
+            <input type="text" name="q" placeholder="Search Note" onkeyup="searchResults()">
+        </div>
+    </section>
+
+    <!-- ALL NOTES -->
+    <section class="notes">
+
+        <% if(data.length===0){%>
+            <h2>No Notes</h2>
+            <%}%>
+        <% for(let i=0;i<data.length;i++){%>
+            <a href="/edit/<%=data[i].$id%>?title=<%=data[i].title%>&note=<%=data[i].note%>">
+            <div class="note">
+                <h1><%=data[i].title%></h1>
+                <p><%=data[i].note%></p>
+            </div>
+            </a>
+            <%}%>
+    </section>
+
+    <!-- CREATE BUTTON -->
+    <button class="fab"><span class="material-symbols-outlined">
+        add
+        </span>
+        <h3>Create Note</h3>
+    </button>
+</body>
+
+<script>
+    const fab=document.querySelector(".fab");
+    fab.addEventListener("click",()=>{
+        window.location.href="/create"
+    })
+
+    const logout=document.querySelector(".logout")
+    logout.addEventListener("click",()=>{
+        window.location.href="/logout"
+    })
+
+    // for search 
+    const searchResults=()=>{
+        const searchNote=document.querySelector(".notes")
+        const allNotes=document.querySelectorAll(".note")
+        allNotes.forEach((note)=>note.style.display='none')
+
+        const q=document.querySelector('input[name="q"]').value;
+        const url='/search?q='+q;
+        // fetch the data
+        fetch(url).then(res=>res.json()).then((data)=>
+        {
+            console.log(data)
+            searchNote.innerHTML=""
+            data.forEach((note)=>{
+                const a =document.createElement('a')
+                a.href=`/edit/${note.$id}?title=${note.title}&note=${note.note}`
+                const div=document.createElement('div')
+                div.classList.add('note')
+                div.innerHTML=`
+                <h1>${note.title}</h1>
+                <p>${note.note}</p>
+                `
+                a.appendChild(div);
+                searchNote.appendChild(a)
+            })
+        })
+    }
+</script>
+</html>

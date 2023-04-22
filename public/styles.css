@@ -1,0 +1,226 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+/* LOGIN SIGN UP PAGE */
+.auth{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth form{
+    height: 450px;
+    width: 450px;
+    border: 2px solid #e5e5e5;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.179);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.auth form input{
+    width: 100%;
+    height: 50px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #1e1e1e;
+}
+
+.auth form button{
+    background-color: #fae457;
+    color: #1e1e1e;
+    font-weight: 600;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.auth form h3{
+ color: rgb(208, 34, 34);
+ text-align: center;
+}
+
+/* HOMEPAGE */
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:20px 30px ;
+    text-align: center;
+}
+
+.header h1{
+    font-size: 28px;
+    font-weight: 700;
+    color: #1e1e1e;
+}
+
+.header .logout{
+    width: 70px;
+    height: 70px;
+    background: #fae457;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.logout span{
+    color: #1e1e1e;
+    font-size: 30px;
+}
+
+/* SEARCH BOX */
+.search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-box input{
+    width: 80%;
+    height: 50px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #1e1e1e;
+}
+
+/* NOTE */
+.notes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 1rem;
+    pad: 1rem;
+    justify-items: center;
+    align-items: center;
+    margin: 40px 30px;
+}
+.notes a {
+   text-decoration: none;
+}
+
+.notes h2{
+    font-weight: 400;
+    font-size: 30px;
+    padding: 20%;
+}
+.note{
+    height: 350px;
+    background-color: #fae457;
+    padding: 20px;
+    width: 300px;
+    color: #1e1e1e;
+    box-shadow: 0 0 2px 2px #e5e5e5;
+    transform: rotate(-4deg);
+}
+
+.note:hover{
+    background-color: #ffca7c;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in;
+}
+
+/* FLOATING CREATE BUTTON */
+.fab{
+    position: fixed;
+    padding: 10px 20px;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fae457;
+    border: none;
+    cursor: pointer;
+}
+
+.fab span{
+    color: #1e1e1e;
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.fab h3{
+    font-weight: 600;
+    color: #1e1e1e;
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+/* NEW NOTE */
+
+.new{
+    margin: 0 auto;
+    width: 80%;
+    padding: 30px;
+}
+.new input{
+    width: 100%;
+    border: #e5e5e5 solid 1px;
+    border-radius: 10px;
+    font-size: 18px;
+    font: 500;
+    color: #1e1e1e;
+    padding: 0 20px;
+    font-weight: 500;
+    height: 50px;
+}
+
+.new textarea{
+    width: 100%;
+    border: #e5e5e5 solid 1px;
+    border-radius: 10px;
+    font-size: 18px;
+    font: 500;
+    color: #1e1e1e;
+    padding: 10px 20px;
+    font-weight: 500;
+   
+}
+
+.new form{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    /* gap: 12px; */
+}
+.new h2{
+    font-weight: 600;
+    padding: 25px 0;
+    color: #1e1e1e;
+}
+
+
+
+.new button{
+    margin: 25px 0;
+    font-size: 20px;
+    width: 100%;
+    background-color: #fae457;
+    color: #1e1e1e;
+    border: none;
+    padding: 20px;
+    font-weight: 500;
+    border-radius: 15px;
+}
+.new button:hover{    transition:  all 0.5s ease-in;
+    background-color: #ffca7c;
+}
